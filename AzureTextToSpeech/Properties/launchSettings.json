@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "AzureTextToSpeech": {
+      "commandName": "Project",
+      "commandLineArgs": "-t .\\TextFiles\\sample.txt",
+      "workingDirectory": "D:\\repos\\azure-text-to-speech\\AzureTextToSpeech"
+    }
+  }
+}
