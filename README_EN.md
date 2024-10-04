@@ -1,6 +1,8 @@
 
 # Azure Text to Speech
 
+![Azure Text to Speech CLI](./ai_text_to_speech.png)
+
 ## Description
 
 `AzureTextToSpeech` is a command-line tool written in C# that leverages Azure Cognitive Services to convert text into speech. It can process individual text files or entire folders, generating `.wav` audio files for each input.
