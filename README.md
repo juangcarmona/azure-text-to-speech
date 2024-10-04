@@ -1,10 +1,6 @@
 
 # Azure Text to Speech
 
-## English Version
-
-For the English version of this README, please click [here](README_en.md).
-
 ## Descripción
 
 `AzureTextToSpeech` es una herramienta de línea de comandos escrita en C# que utiliza el servicio Azure Cognitive Services para sintetizar voz a partir de texto. Puedes procesar archivos de texto individuales o carpetas completas, generando archivos de audio en formato `.wav` para cada entrada.
@@ -16,51 +12,53 @@ For the English version of this README, please click [here](README_en.md).
 - **Soporte para múltiples voces e idiomas:** Configurable a través del archivo `appsettings.json`.
 - **Argumentos de línea de comandos:** Fácil de usar desde la terminal con opciones para archivo y carpeta.
 
-## Requisitos
+## Instalación
 
-- .NET 6.0 o superior
-- Una cuenta de Azure con el servicio Cognitive Services configurado.
-- Clave y región del servicio Azure Speech.
+### Requisitos previos
+
+1. **Configurar un recurso en Azure AI Services**:
+   - Accede a [Azure Portal](https://portal.azure.com) y crea un recurso de **Cognitive Services** en la región que prefieras.
+   - Una vez creado, anota la **clave (key)** y la **región** del servicio.
+
+2. **Actualizar `appsettings.json`**:
+   - Edita el archivo `appsettings.json` y añade tu clave (`SpeechKey`) y la región (`SpeechRegion`):
+   
+   ```json
+   {
+       "SpeechKey": "TU_CLAVE_DE_AZURE",
+       "SpeechRegion": "TU_REGION_DE_AZURE",
+       "Voice": "es-ES-AlvaroNeural"
+   }
+   ```
+
+3. **Ejecutar el script de instalación**:
+   - En **Windows**: Ejecuta `install.ps1` con PowerShell:
+   
+     ```powershell
+     .\install.ps1
+     ```
+
+   - En **Linux o macOS**: Ejecuta `install.sh`:
+   
+     ```bash
+     sudo ./install.sh
+     ```
+
+Esto creará un ejecutable llamado `tts` en tu sistema, que podrás usar desde cualquier ubicación.
 
 ## Uso
 
-1. **Clonar el repositorio:**
-   
+- **Para sintetizar un archivo de texto individual**:
+
    ```bash
-   git clone https://github.com/tu-usuario/azure-text-to-speech.git
-   cd azure-text-to-speech
+   tts -t .\TextFiles\sample.txt
    ```
 
-2. **Configurar el proyecto:**
-   
-   - Edita el archivo `appsettings.json` y añade tu clave (`SpeechKey`) y región (`SpeechRegion`) de Azure Speech.
-   - Opcionalmente, configura la voz deseada en `Voice`.
+- **Para sintetizar todos los archivos de texto dentro de una carpeta**:
 
-3. **Compilar y ejecutar:**
-   
-   - Para sintetizar un archivo de texto individual:
-
-     ```bash
-     azuretts -t .\TextFiles\sample.txt
-     ```
-
-   - Para sintetizar todos los archivos de una carpeta:
-
-     ```bash
-     azuretts -f .\TextFiles
-     ```
-
-## Configuración
-
-Asegúrate de tener configurado el archivo `appsettings.json` con la siguiente estructura:
-
-```json
-{
-    "SpeechKey": "YOUR_AZURE_SPEECH_KEY",
-    "SpeechRegion": "YOUR_AZURE_REGION",
-    "Voice": "en-US-AriaNeural"
-}
-```
+   ```bash
+   tts -f .\TextFiles
+   ```
 
 ## Contribuciones
 
@@ -69,3 +67,7 @@ Si deseas contribuir, por favor abre un pull request o reporta un issue en el re
 ## Licencia
 
 Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
+
+## Versión en Inglés
+
+Para la versión en inglés de este README, haz clic [aquí](README_EN.md).

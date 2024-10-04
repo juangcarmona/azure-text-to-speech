@@ -12,51 +12,53 @@
 - **Support for multiple voices and languages:** Configurable via the `appsettings.json` file.
 - **Command-line arguments:** Easy to use from the terminal with options for file and folder processing.
 
-## Requirements
+## Installation
 
-- .NET 6.0 or later
-- An Azure account with the Cognitive Services Speech resource configured.
-- Azure Speech Key and Region.
+### Prerequisites
+
+1. **Create a resource in Azure AI Services**:
+   - Go to the [Azure Portal](https://portal.azure.com) and create a **Cognitive Services** resource in your desired region.
+   - Once created, note down the **key** and **region** of the service.
+
+2. **Update `appsettings.json`**:
+   - Edit the `appsettings.json` file and add your Azure `SpeechKey` and `SpeechRegion`:
+   
+   ```json
+   {
+       "SpeechKey": "YOUR_AZURE_SPEECH_KEY",
+       "SpeechRegion": "YOUR_AZURE_REGION",
+       "Voice": "en-US-AriaNeural"
+   }
+   ```
+
+3. **Run the installation script**:
+   - On **Windows**: Run `install.ps1` with PowerShell:
+   
+     ```powershell
+     .\install.ps1
+     ```
+
+   - On **Linux or macOS**: Run `install.sh`:
+   
+     ```bash
+     sudo ./install.sh
+     ```
+
+This will create an executable called `tts` on your system, which you can use from any location.
 
 ## Usage
 
-1. **Clone the repository:**
-   
+- **To synthesize a single text file**:
+
    ```bash
-   git clone https://github.com/your-username/azure-text-to-speech.git
-   cd azure-text-to-speech
+   tts -t .\TextFiles\sample.txt
    ```
 
-2. **Configure the project:**
-   
-   - Edit the `appsettings.json` file and add your Azure Speech `SpeechKey` and `SpeechRegion`.
-   - Optionally, set the desired voice under `Voice`.
+- **To synthesize all text files within a folder**:
 
-3. **Build and run the application:**
-
-   - To synthesize a single text file:
-
-     ```bash
-     azuretts -t .\TextFiles\sample.txt
-     ```
-
-   - To synthesize all text files within a folder:
-
-     ```bash
-     azuretts -f .\TextFiles
-     ```
-
-## Configuration
-
-Make sure to configure the `appsettings.json` file with the following structure:
-
-```json
-{
-    "SpeechKey": "YOUR_AZURE_SPEECH_KEY",
-    "SpeechRegion": "YOUR_AZURE_REGION",
-    "Voice": "en-US-AriaNeural"
-}
-```
+   ```bash
+   tts -f .\TextFiles
+   ```
 
 ## Contributions
 
@@ -65,3 +67,7 @@ If you want to contribute, please open a pull request or report an issue in the 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Spanish Version
+
+For the Spanish version of this README, click [here](README.md).
