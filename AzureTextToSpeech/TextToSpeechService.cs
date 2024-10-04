@@ -1,6 +1,7 @@
 ﻿using Microsoft.CognitiveServices.Speech;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System.IO;
 
 public class TextToSpeechService
 {
@@ -51,6 +52,12 @@ public class TextToSpeechService
         {
             var directoryInfo = new DirectoryInfo(folderPath);
             FileInfo[] fileInfos = directoryInfo.GetFiles("*.txt");
+
+            var outputDirectory = Path.Combine(Path.GetDirectoryName(folderPath), "AudioOutput");
+            if (!Directory.Exists(outputDirectory))
+            {
+                Directory.CreateDirectory(outputDirectory);
+            }
 
             foreach (var fileInfo in fileInfos)
             {

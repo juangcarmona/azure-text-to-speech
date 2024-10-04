@@ -3,73 +3,76 @@
 
 ![Azure Text to Speech CLI](./ai_text_to_speech.png)
 
-## Descripción
+# Spanish README
+For the Spanish version of this README, please click [here](README_ES.md).
 
-`AzureTextToSpeech` es una herramienta de línea de comandos escrita en C# que utiliza el servicio Azure Cognitive Services para sintetizar voz a partir de texto. Puedes procesar archivos de texto individuales o carpetas completas, generando archivos de audio en formato `.wav` para cada entrada.
+## Description
 
-## Características
+`AzureTextToSpeech` is a command-line tool written in C# that leverages Azure Cognitive Services to convert text into speech. It can process individual text files or entire folders, generating `.wav` audio files for each input.
 
-- **Procesamiento de archivos individuales:** Convierte un archivo `.txt` en un archivo de audio `.wav`.
-- **Procesamiento por lotes:** Convierte todos los archivos de texto dentro de una carpeta en archivos de audio.
-- **Soporte para múltiples voces e idiomas:** Configurable a través del archivo `appsettings.json`.
-- **Argumentos de línea de comandos:** Fácil de usar desde la terminal con opciones para archivo y carpeta.
+## Features
 
-## Instalación
+- **Single file processing:** Converts a `.txt` file into a `.wav` audio file.
+- **Batch processing:** Converts all text files within a folder into audio files.
+- **Support for multiple voices and languages:** Configurable via the `appsettings.json` file.
+- **Command-line arguments:** Easy to use from the terminal with options for file and folder processing.
 
-### Requisitos previos
+## Installation
 
-1. **Configurar un recurso en Azure AI Services**:
-   - Accede a [Azure Portal](https://portal.azure.com) y crea un recurso de **Cognitive Services** en la región que prefieras.
-   - Una vez creado, anota la **clave (key)** y la **región** del servicio.
+### Prerequisites
 
-2. **Actualizar `appsettings.json`**:
-   - Edita el archivo `appsettings.json` y añade tu clave (`SpeechKey`) y la región (`SpeechRegion`):
+1. **Create a resource in Azure AI Services**:
+   - Go to the [Azure Portal](https://portal.azure.com) and create a **Cognitive Services** resource in your desired region.
+   - Once created, note down the **key** and **region** of the service.
+
+2. **Update `appsettings.json`**:
+   - Edit the `appsettings.json` file and add your Azure `SpeechKey` and `SpeechRegion`:
    
    ```json
    {
-       "SpeechKey": "TU_CLAVE_DE_AZURE",
-       "SpeechRegion": "TU_REGION_DE_AZURE",
-       "Voice": "es-ES-AlvaroNeural"
+       "SpeechKey": "YOUR_AZURE_SPEECH_KEY",
+       "SpeechRegion": "YOUR_AZURE_REGION",
+       "Voice": "en-US-AriaNeural"
    }
    ```
 
-3. **Ejecutar el script de instalación**:
-   - En **Windows**: Ejecuta `install.ps1` con PowerShell:
+3. **Run the installation script**:
+   - On **Windows**: Run `install.ps1` with PowerShell:
    
      ```powershell
      .\install.ps1
      ```
 
-   - En **Linux o macOS**: Ejecuta `install.sh`:
+   - On **Linux or macOS**: Run `install.sh`:
    
      ```bash
      sudo ./install.sh
      ```
 
-Esto creará un ejecutable llamado `tts` en tu sistema, que podrás usar desde cualquier ubicación.
+This will create an executable called `tts` on your system, which you can use from any location.
 
-## Uso
+## Usage
 
-- **Para sintetizar un archivo de texto individual**:
+- **To synthesize a single text file**:
 
    ```bash
    tts -t .\TextFiles\sample.txt
    ```
 
-- **Para sintetizar todos los archivos de texto dentro de una carpeta**:
+- **To synthesize all text files within a folder**:
 
    ```bash
    tts -f .\TextFiles
    ```
 
-## Contribuciones
+## Contributions
 
-Si deseas contribuir, por favor abre un pull request o reporta un issue en el repositorio.
+If you want to contribute, please open a pull request or report an issue in the repository.
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
-## Versión en Inglés
+## Spanish Version
 
-Para la versión en inglés de este README, haz clic [aquí](README_EN.md).
+For the Spanish version of this README, click [here](README.md).
