@@ -11,9 +11,10 @@ public class TextToSpeechService
     {
         var subscriptionKey = configuration["SpeechKey"];
         var serviceRegion = configuration["SpeechRegion"];
+        var voice = configuration["Voice"];
 
         _speechConfig = SpeechConfig.FromSubscription(subscriptionKey, serviceRegion);
-        _speechConfig.SpeechSynthesisVoiceName = "en-US-AriaNeural"; // You can change the voice here
+        _speechConfig.SpeechSynthesisVoiceName = voice;
         _logger = logger;
     }
 

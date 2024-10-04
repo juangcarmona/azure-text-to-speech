@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Text;
 
 class Program
 {
@@ -50,7 +51,7 @@ class Program
                 return;
             }
 
-            var textContent = await File.ReadAllTextAsync(path);
+            var textContent = await File.ReadAllTextAsync(path, Encoding.UTF8);
             var outputFilePath = Path.Combine(Path.GetDirectoryName(path), $"{Path.GetFileNameWithoutExtension(path)}.wav");
 
             await ttsService.SynthesizeSpeechAsync(textContent, outputFilePath);
